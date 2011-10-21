@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -eux
+
+DEBIAN_FRONTEND=noninteractive apt-get -y install \
+   debconf adduser libreoffice imagemagick poppler-utils \
+   libwpd-tools postgresql perl locales debconf wget unzip
+
+wget http://community.nuxeo.com/static/releases/nuxeo-5.4.2/nuxeo-cap-5.4.2-tomcat.zip
+
+unzip -d /opt nuxeo-cap-5.4.2-tomcat.zip
+
+#juju-log "adding repository"
+#apt-add-repository "deb http://apt.nuxeo.org/ natty releases"
+#apt-add-repository ppa:nuxeo-isv/nuxeo-dm
+#apt-add-repository "deb http://archive.canonical.com/ubuntu lucid partner"
+#apt-get update
+
+#juju-log "installing nuxeo-dm"
+#DEBIAN_FRONTEND=noninteractive apt-get -y install nuxeo-dm
+
+juju-log "opening port 8080"
+if [ -x /usr/bin/open-port ];then
+   open-port 8080/TCP
+fi

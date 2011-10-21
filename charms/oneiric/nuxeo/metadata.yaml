@@ -1,0 +1,8 @@
+ensemble: formula
+name: nuxeo
+summary: "Nuxeo ECM platform"
+description: |
+    Installs the Nuxeo ECM platform.
+provides:
+  website:
+    interface: http 

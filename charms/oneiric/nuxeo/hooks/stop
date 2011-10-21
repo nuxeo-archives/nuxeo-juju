@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -eux
+
+/opt/nuxeo-cap-5.4.2-tomcat/bin/nuxeoctl stop
+
